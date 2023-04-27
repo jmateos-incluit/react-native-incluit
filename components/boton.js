@@ -1,11 +1,7 @@
-import { useEffect } from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 
 export default function Boton({ apretame, text="Boton" }) {
 
-    useEffect(()=>{
-        console.log("render Boton")
-    },[text])
   return (
     <>
       <TouchableOpacity style={styles.btn} onPress={apretame}>
