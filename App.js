@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Boton from "./components/boton";
 import HomeS from "./screens/stack/Home";
 import ScreenOneS from "./screens/stack/ScreenOne";
@@ -13,11 +14,32 @@ import ScreenTwoR from "./screens/rustico/ScreenTwo";
 import HomeD from "./screens/drawer/Home";
 import ScreenOneD from "./screens/drawer/ScreenOne";
 import ScreenTwoD from "./screens/drawer/ScreenTwo";
+import HomeT from "./screens/tab/Home";
+import ScreenOneT from "./screens/tab/ScreenOne";
+import ScreenTwoT from "./screens/tab/ScreenTwo";
 
 import { useState } from "react";
 
 export default function App() {
+  //EJEMPLO USANDO NAVEGACIÓN BOTTOM TABS
+
+  const Tab = createBottomTabNavigator();
+
+  return (
+    <>
+      <StatusBar style="auto" />
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={HomeT} />
+          <Tab.Screen name="ScreenOne" component={ScreenOneT} />
+          <Tab.Screen name="ScreenTwo" component={ScreenTwoT} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </>
+  );
+
   //EJEMPLO USANDO NAVEGACIÓN DRAWER
+  /*
   const Drawer = createDrawerNavigator();
 
   return (
@@ -30,10 +52,10 @@ export default function App() {
           <Drawer.Screen name="ScreenTwo" component={ScreenTwoD} />
         </Drawer.Navigator>
       </NavigationContainer>
-
       <Boton text="Haz tu donación"></Boton>
     </>
   );
+  */
 
   //EJEMPLO USANDO NAVEGACIÓN RUSTICA
   /*
